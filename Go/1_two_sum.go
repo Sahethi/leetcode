@@ -34,8 +34,6 @@ Time Complexity: O(n)
 Space Complexity: O(n)
 */
 
-package main
-
 // twoSum finds two numbers in the array that sum to target
 // Hash map approach: Store each number and its index as we iterate.
 // For each number, check if (target - current number) exists in the map.

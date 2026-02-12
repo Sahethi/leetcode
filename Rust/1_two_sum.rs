@@ -36,6 +36,8 @@ Space Complexity: O(n)
 
 use std::collections::HashMap;
 
+struct Solution;
+
 impl Solution {
     /// Hash map approach to find two numbers that sum to target.
     /// Store each number and its index as we iterate through the array.
