@@ -10,8 +10,11 @@ public:
                 if(pq.size() > ladders){
                     int top = pq.top();
                     pq.pop();
-                    bricks -= top;
-                    if (bricks < 0) return i;
+                    if(top < bricks){
+                        bricks = bricks - top;
+                    }else{
+                        return i;
+                    }
                 }
             }
         }
