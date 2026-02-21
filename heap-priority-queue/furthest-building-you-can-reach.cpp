@@ -13,7 +13,7 @@ public:
                     if(top < bricks){
                         bricks = bricks - top;
                     }else{
-                        return i;
+                        return i+1;
                     }
                 }
             }
