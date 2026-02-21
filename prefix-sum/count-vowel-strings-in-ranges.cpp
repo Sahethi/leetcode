@@ -11,6 +11,7 @@ public:
         vector<int> result;
         vector<int> validArr;
         vector<int> prefix;
+        int sum = 0;
         for(int i=0; i<words.size(); i++){
             char first = words[i][0];
             char last  = words[i][words[i].size() - 1];
@@ -19,19 +20,15 @@ public:
             }else{
                 validArr.push_back(0);
             }
-        }
-        int sum = 0;
-        for(int i=0; i<validArr.size(); i++){
-             sum += validArr[i];
-             prefix.push_back(sum);
+            sum += validArr[i];
+            prefix.push_back(sum);
         }
 
         for(auto& query : queries){
             int count = 0;
             int l = query[0];
             int r = query[1];
-            if(l == 0)
-                count = prefix[r];
+            if(l == 0) count = prefix[r];
             else count = prefix[r] - prefix[l-1];
             result.push_back(count);
         }
