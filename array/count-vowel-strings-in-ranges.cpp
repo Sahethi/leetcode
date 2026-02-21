@@ -24,6 +24,8 @@ public:
                 else if(isVowel(first) && isVowel(last)){
                     count++;
                     voweledWords[words[i]] = true;
+                }else{
+                    voweledWords[words[i]] = false;
                 }
             }
             result.push_back(count);
