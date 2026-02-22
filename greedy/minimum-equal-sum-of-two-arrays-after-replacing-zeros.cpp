@@ -28,9 +28,6 @@ public:
         if((minSumNum2 < minSumNum1) && (zeroNum2 == 0))
             return -1;
         
-        long long max1;
-        max1 = max(minSumNum1,minSumNum2);
-        
         return max(minSumNum1,minSumNum2);
     }
 };
