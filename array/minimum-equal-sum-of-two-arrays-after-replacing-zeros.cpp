@@ -29,6 +29,6 @@ public:
             return -1;
         
         
-        return max(minSumNum1,minSumNum2);
+        return (long long)max(minSumNum1,minSumNum2);
     }
 };
