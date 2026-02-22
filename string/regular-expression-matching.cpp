@@ -10,7 +10,7 @@ public:
             return memo[i][j];
         
         bool firstMatch = (i < s.size() &&
-                          s[i] == p[j]) || p[j] == '.';
+                          (s[i] == p[j] || p[j] == '.'));
         
         bool ans;
         
