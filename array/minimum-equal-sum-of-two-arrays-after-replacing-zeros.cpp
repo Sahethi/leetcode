@@ -1,30 +1,34 @@
 class Solution {
 public:
     long long minSum(vector<int>& nums1, vector<int>& nums2) {
-        long long sum1 = 0, sum2 = 0;
-        long long z1 = 0, z2 = 0;
-
-        for (int x : nums1) {
-            if (x == 0) z1++;
-            else sum1 += x;
+        
+        int zeroNum1 = 0;
+        int minSumNum1 = 0;
+        for(int num1: nums1){
+            if(num1 == 0){
+                zeroNum1++;
+            }
+            minSumNum1 += num1;
         }
+        minSumNum1 += zeroNum1;
 
-        for (int x : nums2) {
-            if (x == 0) z2++;
-            else sum2 += x;
+        int zeroNum2 = 0;
+        int minSumNum2 = 0;
+        for(int num2: nums2){
+            if(num2 == 0){
+                zeroNum2++;
+            }
+            minSumNum2 += num2;
         }
+        minSumNum2 += zeroNum2;
 
-        long long min1 = sum1 + z1;
-        long long min2 = sum2 + z2;
-
-        if (min1 == min2) return min1;
-
-        if (min1 < min2) {
-            if (z1 == 0) return -1;
-            return min2;
-        } else {
-            if (z2 == 0) return -1;
-            return min1;
-        }
+        if(minSumNum1 == minSumNum2) return minSumNum1;
+        if((minSumNum1 < minSumNum2) && (zeroNum1 == 0))
+            return -1;
+        if((minSumNum2 < minSumNum1) && (zeroNum2 == 0))
+            return -1;
+        
+        
+        return max(minSumNum1,minSumNum2);
     }
 };
