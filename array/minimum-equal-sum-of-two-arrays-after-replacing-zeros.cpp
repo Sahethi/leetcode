@@ -3,7 +3,7 @@ public:
     long long minSum(vector<int>& nums1, vector<int>& nums2) {
         
         int zeroNum1 = 0;
-        int minSumNum1 = 0;
+        long long minSumNum1 = 0;
         for(int num1: nums1){
             if(num1 == 0){
                 zeroNum1++;
@@ -13,7 +13,7 @@ public:
         minSumNum1 += zeroNum1;
 
         int zeroNum2 = 0;
-        int minSumNum2 = 0;
+        long long minSumNum2 = 0;
         for(int num2: nums2){
             if(num2 == 0){
                 zeroNum2++;
@@ -28,7 +28,9 @@ public:
         if((minSumNum2 < minSumNum1) && (zeroNum2 == 0))
             return -1;
         
+        long long max1;
+        max1 = max(minSumNum1,minSumNum2);
         
-        return (long long)max(minSumNum1,minSumNum2);
+        return max(minSumNum1,minSumNum2);
     }
 };
