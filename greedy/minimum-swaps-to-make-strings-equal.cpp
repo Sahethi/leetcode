@@ -18,7 +18,8 @@ public:
         //odd number is mismatches is -1
         if((countXY + countYX) % 2) return -1;
         
-        return (countXY + 1) / 2 + (countYX+1) / 2;
+        // return countXY/2 + countYX/2 + (countXY % 2) * 2;
+        return (countXY + 1) / 2 + (countYX + 1) / 2;
 
     }
 };
