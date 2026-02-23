@@ -11,6 +11,6 @@ public:
 
         //if number of elements are even 
 
-        return (n%2 == 0) ? (n/2)*(n/2) : 2 * ((n/2) * (n/2));
+        return (n%2 == 0) ? (n/2)*(n/2) : n/2*(n/2+1);
     }
 };
