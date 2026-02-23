@@ -4,7 +4,7 @@ public:
         int maxTime = events[0][1], maxIdx = events[0][0];
         for(int i=1; i<events.size(); i++){
             int diff = events[i][1] - events[i-1][1];
-            if(maxTime < diff || (diff == maxTime && events[i][0] < maxIdx)){
+            if(maxTime < diff ){
                 maxTime = diff;
                 maxIdx = events[i][0];
             }
