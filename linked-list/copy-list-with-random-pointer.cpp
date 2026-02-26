@@ -18,6 +18,7 @@ class Solution {
 public:
     Node* copyRandomList(Node* head) {
         unordered_map<Node*, Node*> mp;
+        //basically we are mapping which original node is mapped to the copy
         Node* curr = head;
 
         while(curr != NULL){
@@ -28,19 +29,16 @@ public:
 
         curr = head;
         while(curr != NULL){
-            if(curr->next != NULL)
-                mp[curr]->next = mp[curr->next];
-            else 
-                mp[curr]->next = NULL;
+            if(curr->next != NULL) mp[curr]->next = mp[curr->next];
+            else mp[curr]->next = NULL;
 
-            if(curr->random != NULL)
-                mp[curr]->random = mp[curr->random];
-            else
-                mp[curr]->random = NULL;
+            if(curr->random != NULL) mp[curr]->random = mp[curr->random];
+            else mp[curr]->random = NULL;
 
             curr = curr->next;
         }
 
+        if(head == NULL) return NULL;
         return mp[head];
     }
 };
