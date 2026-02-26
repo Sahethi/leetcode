@@ -20,6 +20,7 @@ public:
         unordered_map<Node*, Node*> mp;
         //basically we are mapping which original node is mapped to the copy
         Node* curr = head;
+        if(head == NULL) return NULL;
 
         while(curr != NULL){
             Node* copy = new Node(curr->val);
@@ -38,7 +39,6 @@ public:
             curr = curr->next;
         }
 
-        if(head == NULL) return NULL;
         return mp[head];
     }
 };
