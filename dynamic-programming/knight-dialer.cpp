@@ -1,6 +1,7 @@
 class Solution {
-public:
+private:
     const int MOD = 1e9 + 7;
+public:
     int knightDialer(int n) {
         vector<vector<int>> moves = {
             {4, 6}, // 0
@@ -20,12 +21,17 @@ public:
             for (int i = 0; i < 10; i++) {
                 for (int j = 0; j < moves[i].size(); j++) {
                     int neighbor = moves[i][j];
-                    next[neighbor] += dp[i];
+                    next[neighbor] = (next[neighbor] + dp[i]) % MOD;
                 }
             }
 
             dp = next;
         }
 
+        long ans = 0;
+        for(int i = 0; i < 10; i++) {
+            ans = (ans + dp[i]) % MOD;
+        }
+        return ans;
     }
 };
