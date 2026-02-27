@@ -12,7 +12,7 @@ public:
 
         //if word1 is empty
         for(int j=0; j<=m; j++){
-            dp[j][0] = j; // delete i chars
+            dp[0][j] = j; // delete i chars
         }
 
         for(int i=1; i<=n; i++){
