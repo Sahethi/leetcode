@@ -6,7 +6,7 @@ public:
         for(auto& point : points){
             int x = point[0];
             int y = point[1];
-            int dist = pow((0-x),2) + pow((0-y),2);
+            int dist = x*x + y*y;
             pq.push({dist, point});
             if(pq.size() > k){
                 pq.pop(); // keep only the k elements
