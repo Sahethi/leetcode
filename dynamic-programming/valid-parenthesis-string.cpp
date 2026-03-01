@@ -4,21 +4,18 @@ public:
         stack<int> leftStack;
         stack<int> starStack;
 
-        for(int i=0; i<s.size(); i++){
-            if(s[i] == '*'){
+        for(int i=0; i<s.size(); i++)
+            if(s[i] == '*')
                 starStack.push(i);
-            }else if(s[i] == '('){
+            else if(s[i] == '(')
                 leftStack.push(i);
-            }else{
-                if(!leftStack.empty()){
+            else
+                if(!leftStack.empty())
                     leftStack.pop();
-                }else if(!starStack.empty()){
+                else if(!starStack.empty())
                     starStack.pop();
-                }else{
+                else
                     return false;
-                }
-            }
-        }
 
         while(!leftStack.empty() &&!starStack.empty()){
             int starTop = starStack.top();
@@ -26,9 +23,8 @@ public:
             if(starTop > leftTop){
                 leftStack.pop();
                 starStack.pop();
-            }else{
+            }else
                 return false;
-            }
         }
 
         return leftStack.empty();
