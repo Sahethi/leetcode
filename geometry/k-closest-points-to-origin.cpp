@@ -13,6 +13,7 @@ private:
         for(int j=left; j<right; j++){
             if(dist(points[j]) <= pivotDist){
                 swap(points[j], points[i]);
+                i++;
             }
         }
         swap(points[i], points[right]);
