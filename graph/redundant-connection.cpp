@@ -40,6 +40,6 @@ public:
             if(rootU == rootV) return edge;
             unionSets(u, v);
         }
-        return edges[0];
+        return {};
     }
 };
