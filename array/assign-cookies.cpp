@@ -10,7 +10,7 @@ public:
                     break;
                 }
             }
-            if(j == s.size() && contentKids!=0) break;
+            if(j == s.size()-1 && contentKids!=0) break;
         }
 
         return contentKids;
