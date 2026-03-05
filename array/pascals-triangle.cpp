@@ -2,7 +2,7 @@ class Solution {
 public:
     vector<vector<int>> generate(int numRows) {
         vector<vector<int>> result;
-        if(numRows == 1) result.push_back({1});
+        if(numRows == 1) return {{1}};
         if(numRows >= 2) {
             result.push_back({1});
             result.push_back({1,1});
@@ -16,7 +16,6 @@ public:
                 sum = result[i][j] + result[i][j+1];
                 ans.push_back(sum);
             }
-            
             ans.push_back(1);
             result.push_back(ans);
         }
