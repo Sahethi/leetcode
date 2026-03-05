@@ -4,13 +4,12 @@ public:
         int contentKids = 0;
         int j;
         for(int i=0; i<g.size(); i++){
-            for(j=0; j<s.size(); j++){
+            for(j=i; j<s.size(); j++){
                 if(s[j] >= g[i]){
                     contentKids++;
                     break;
                 }
             }
-            if(j == s.size()-1 && contentKids!=0) break;
         }
 
         return contentKids;
