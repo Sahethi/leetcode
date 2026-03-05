@@ -6,7 +6,7 @@ public:
         int right = x;
         
         while(left <= right){
-            int mid = (left + right) >> 1; // int division by 2
+            long mid = (left + right) >> 1; // int division by 2
 
             if(mid * mid == x) return mid;
             if(mid * mid < x){
