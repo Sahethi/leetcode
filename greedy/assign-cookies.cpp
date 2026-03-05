@@ -9,11 +9,13 @@ public:
         int childPtr = 0, cookiePtr=0;
         for(int i=0; i<g.size(); i++){
             for(j=0; j<s.size(); j++){
-                if(cookiePtr < s.size() && childPtr < g.size()  && s[cookiePtr] >= g[childPtr]){
+                if(cookiePtr < s.size() && childPtr < g.size() && s[cookiePtr] >= g[childPtr]){
                     contentKids++;
                     childPtr++;
                     cookiePtr++;
                     break;
+                }else{
+                    childPtr++;
                 }
             }
         }
