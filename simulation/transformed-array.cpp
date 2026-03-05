@@ -9,7 +9,8 @@ public:
         //
     
         for(int i=0; i<n; i++){
-            result[i] = nums[((i + nums[i]) % n + n) % n];
+            int newIndex = ((i + nums[i]) % n + n) % n;
+            result[i] = nums[newIndex];
         }
 
         return result;
