@@ -2,7 +2,6 @@ class Solution {
 public:
     vector<int> findMissingAndRepeatedValues(vector<vector<int>>& grid) {
         int n = grid[0].size();
-        int totalElements = n * grid.size();
         vector<int> res;
         unordered_map<int, int> freq;
 
@@ -13,7 +12,7 @@ public:
         }
 
         int skipped, twice;
-        for(int i=1; i<=totalElements; i++){
+        for(int i=1; i<=n*n; i++){
             if(freq[i] == 2){
                 twice = i;
             }
