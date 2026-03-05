@@ -13,7 +13,7 @@ public:
                     childPtr++;
                     cookiePtr++;
                 }else{
-                    childPtr++;
+                    cookiePtr++;
                 }
         }
 
