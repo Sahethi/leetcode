@@ -12,18 +12,18 @@ public:
             }
         }
 
+        int skipped, twice;
         for(int i=1; i<=totalElements; i++){
             if(freq[i] == 2){
-                res.push_back(i);
+                twice = i;
             }
-        }
-
-        for(int i=1; i<=totalElements; i++){
             if(freq[i] == 0){
-                res.push_back(i);
+                skipped = i;
             }
         }
 
+        res.push_back(twice);
+        res.push_back(skipped);
         return res;
     }
 };
