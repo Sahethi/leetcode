@@ -3,7 +3,7 @@ public:
     vector<int> findMissingAndRepeatedValues(vector<vector<int>>& grid) {
         int n = grid[0].size();
         vector<int> res;
-        unordered_map<int, int> freq;
+        vector<int> freq(n*n+1, 0);
 
         for(auto& row : grid){
             for(int i=0; i<n; i++){
