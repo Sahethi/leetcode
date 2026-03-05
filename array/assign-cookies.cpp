@@ -9,12 +9,10 @@ public:
 
         while(cookiePtr < s.size() && childPtr < g.size()){
             if(s[cookiePtr] >= g[childPtr]){
-                    contentKids++;
-                    childPtr++;
-                    cookiePtr++;
-                }else{
-                    cookiePtr++;
-                }
+                contentKids++;
+                childPtr++;
+            }
+            cookiePtr++;
         }
 
         return contentKids;
