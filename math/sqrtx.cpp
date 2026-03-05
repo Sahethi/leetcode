@@ -16,7 +16,7 @@ public:
             }
         }
 
-        return right;
+        return right; //rigth will have the lasst number which is. <= x
         
 
     }
