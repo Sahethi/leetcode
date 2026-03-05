@@ -6,11 +6,13 @@ public:
         
         sort(g.begin(), g.end());
         sort(s.begin(), s.end());
-
+        int childPtr = 0, cookiePtr=0;
         for(int i=0; i<g.size(); i++){
-            for(j=i; j<s.size(); j++){
-                if(s[j] >= g[i]){
+            for(j=0; j<s.size(); j++){
+                if(s[cookiePtr] >= g[childPtr]){
                     contentKids++;
+                    childPtr++;
+                    cookiePtr++;
                     break;
                 }
             }
