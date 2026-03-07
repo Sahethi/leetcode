@@ -1,6 +1,9 @@
 class Solution {
 public:
     void wallsAndGates(vector<vector<int>>& rooms) {
+
+        if(rooms.empty()) return;
+
         queue<pair<int, int>> q;
         for(int i=0; i<rooms.size(); i++){
             for(int j=0; j<rooms[0].size(); j++){
