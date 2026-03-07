@@ -7,9 +7,7 @@ public:
         sort(hand.begin(), hand.end());
         //[1, 2, 3, 6, 2, 3, 4, 7, 8]
         //{1, 2, 2, 3, 3, 4, 6, 7, 8}
-        int k = 0;
-        int total=0;
-        int index;
+
         unordered_map<int, int> freq;
         for(int i=0; i<hand.size(); i++){
             int v = hand[i];
