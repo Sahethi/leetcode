@@ -38,8 +38,6 @@ public:
 
             if(curr.isInteger()) {
                 return true; 
-            } else if(curr.getList().empty()) {
-                return false;
             } else {
                 st.pop();
                 for(int i=curr.getList().size()-1; i>=0; i--){
