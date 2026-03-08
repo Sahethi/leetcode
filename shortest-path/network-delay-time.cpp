@@ -26,9 +26,8 @@ public:
             pq.pop();
 
             //if we have found a shorter path ignore this
-            if(time_to_u > dist[u]){
+            if(time_to_u > dist[u])
                 continue;
-            }
 
             for(const auto& edge : adj[u]){
                 int v = edge.first;
@@ -43,9 +42,8 @@ public:
 
         int max_time = 0;
         for(int i=1; i<=n; i++){
-            if(dist[i] == INT_MAX){
+            if(dist[i] == INT_MAX)
                 return -1;
-            }
             max_time = max(max_time, dist[i]);
         }
         return max_time;
