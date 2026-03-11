@@ -9,7 +9,7 @@ public:
         priority_queue<vector<int>, vector<vector<int>>, greater<vector<int>>> pq;
 
         pq.push({0,0,0});
-        dist[0][0] = 0;
+        dist[0][0] = grid[0][0];
 
         vector<int> dir ={0,1,0,-1,0};
 
