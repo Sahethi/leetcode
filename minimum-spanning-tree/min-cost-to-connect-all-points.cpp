@@ -6,7 +6,8 @@ public:
         vector<int> minDist(n, INT_MAX);
         int totalCost = 0;
         minDist[0] = 0;
-
+        
+        //uses prim's Minimum spanning tree solution
         for(int i=0; i<n; i++){
             int u = -1;
             for(int j=0; j<n; j++){
