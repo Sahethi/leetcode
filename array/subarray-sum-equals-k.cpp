@@ -8,10 +8,11 @@ public:
         int ans=0;
         for(int i=0; i<nums.size(); i++){
             prefixSum += nums[i];
-            count[prefixSum]++;
-            if(k >= 0 && count[prefixSum - k] > 0){
-                ans++;
+            
+            if(count[prefixSum - k] > 0){
+                ans += count[prefixSum - k];
             }
+            count[prefixSum]++;
         }
         return ans;
     }
