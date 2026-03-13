@@ -9,7 +9,7 @@ public:
         for(int i=0; i<nums.size(); i++){
             prefixSum += nums[i];
             count[prefixSum]++;
-            if(count[prefixSum - k] > 0){
+            if(k >= 0 && count[prefixSum - k] > 0){
                 ans++;
             }
         }
