@@ -21,6 +21,7 @@ public:
                 break;
             }
             int front = queue1.front();
+            topEl = front;
             queue1.pop();
             queue2.push(front);     
         }
