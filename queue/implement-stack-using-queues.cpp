@@ -15,9 +15,10 @@ public:
     int pop() {
         while(!queue1.empty()){
             if(queue1.size() == 1){
+                int front = queue1.front();
                 queue1.pop();
                 swap(queue1, queue2);
-                break;
+                return front;
             }
             int front = queue1.front();
             queue1.pop();
