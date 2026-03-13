@@ -15,7 +15,6 @@ public:
     int pop() {
         while(queue1.size() > 1){
             topEl = queue1.front();
-            
             queue2.push(queue1.front());
             queue1.pop();
         }
