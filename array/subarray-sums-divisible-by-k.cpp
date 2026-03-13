@@ -9,6 +9,7 @@ public:
             prefixSum += nums[i];
             int r = prefixSum % k;
             if(r < 0) r += k;
+            ans += count[r];
             count[r]++;
         }
 
