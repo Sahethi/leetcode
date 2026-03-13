@@ -13,17 +13,14 @@ public:
     }
     
     int pop() {
-        while(!queue1.empty()){
-            if(queue1.size() == 1){
-                int front = queue1.front();
-                queue1.pop();
-                swap(queue1, queue2);
-                return front;
-            }
+        while(queue1.size() > 1){
             int front = queue1.front();
             queue1.pop();
-            queue2.push(front);     
+            queue2.push(front);
         }
+        int pop = queue1.front();
+        queue1.pop();
+        swap(queue1, queue2);
         return topEl;
     }
     
