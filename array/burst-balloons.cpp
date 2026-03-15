@@ -17,16 +17,14 @@ public:
         //padding with 1 on both left and right
         vector<int> arr;
         arr.push_back(1);
-
         for(int n : nums)
             arr.push_back(n);
 
         arr.push_back(1);
-
         int m = arr.size();
-
         vector<vector<int>> dp(m, vector<int>(m, 0));
 
+        //u need minum of 2 baloons when u for right - left
         for(int len=2; len<m; len++){
             for(int left = 0; left + len  < m; left++){
                 int right = left + len;
