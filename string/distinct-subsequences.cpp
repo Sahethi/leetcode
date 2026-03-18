@@ -20,6 +20,6 @@ public:
             }
         }
 
-        return dp[n][m];
+        return (int)dp[n][m];
     }
 };
