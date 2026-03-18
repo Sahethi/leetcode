@@ -2,10 +2,37 @@ class Solution {
 public:
     int networkDelayTime(vector<vector<int>>& times, int n, int k) {
         //implementing by bellman ford
+        //with DP dp[i][v] = shortest time to reach node v using at most i edges
+        vector<vector<int>> dp(n, vector<int>(n+1, INT_MAX));
+        dp[0][k] = 0;
+
+        for(int i=1; i<n; i++){
+            dp[i] = dp[i-1];
+
+            for(auto& edge : times){
+                int u = edge[0];
+                int v = edge[1];
+                int w = edge[2];
+
+                if(dp[i-1][u] != INT_MAX){
+                    dp[i][v] = min(dp[i][v], dp[i-1][u] + w);
+                }
+            }
+        }
+
+        int ans = 0;
+        for(int i=1; i<=n; i++){
+            if(dp[n-1][i] == INT_MAX) return -1;
+            ans = max(ans, dp[n-1][i]);
+        }
+        return ans;
+
+        /**
+        //bellman ford
         vector<int> dist(n+1, INT_MAX);
         dist[k] = 0;
 
-        for(int i=1; i<n ; i++){
+        for(int i=1; i<n; i++){
 
             for(auto& edge: times){
                 int u = edge[0];
@@ -25,6 +52,7 @@ public:
         }
 
         return ans;
+        **/
 
         /** djistra
         //list of neighbors
