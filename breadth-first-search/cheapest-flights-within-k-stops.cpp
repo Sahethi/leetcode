@@ -6,7 +6,7 @@ public:
         dist[src] = 0;
 
         for(int i=0; i<=k; i++){
-            vector<int> temp = dist;
+            vector<int> temp(dist);
             
             for(auto& flight : flights){
                 int u = flight[0];
