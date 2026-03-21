@@ -1,8 +1,33 @@
 class Solution {
+public:
+    vector<int> sortArray(vector<int>& nums){
+        const int OFFSET = 50000;
+        const int SIZE = 100001;
+
+        vector<int> count(SIZE, 0);
+
+        for(int num: nums){
+            count[num + OFFSET]++;
+        }
+
+        int idx=0;
+        for(int i=0; i<SIZE; i++){
+            while(count[i] > 0){
+                nums[idx++] = i - OFFSET;
+                count[i]--;
+            }
+        }
+
+        return nums;
+    }
+};
+
+/**
+class Solution {
     int partition(vector<int>& nums, int left, int right){
         int pivotIndex = left + rand() % (right - left + 1);
         swap(nums[pivotIndex], nums[right]);
-        
+
         int pivot = nums[right];
         int i = left;
 
@@ -30,3 +55,4 @@ public:
         return nums;
     }
 };
+*/
