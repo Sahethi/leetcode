@@ -2,30 +2,28 @@ class Solution {
 private:
     bool canSplit(string &message, int limit, int k) {
         int n = message.length();
-        int total = 0;
+        int used = 0;
 
-        int digitsK = to_string(k).size();
+        int digitInK = to_string(k).size();
 
         int start = 1;
         int d = 1;
 
-        while (start <= k) {
-            int end = min(k, start * 10 - 1);
+        while(start <= k){
+            int end = min(k, start*10 - 1);
             int count = end - start + 1;
 
-            int suffixLen = d + digitsK + 3;
+            int suffixLen = d + digitInK + 3;
             int available = limit - suffixLen;
 
-            if (available <= 0) return false;
+            if(available <= 0) return false;
 
-            total += count * available;
-            if (total >= n) return true;
+            used += count * available;
 
             start *= 10;
             d++;
         }
-
-        return total >= n;
+        return used >= n;
     }
     
     vector<string> buildResult(string &message, int limit, int k) {
