@@ -12,7 +12,7 @@ public:
         long long right = (long long) *min_element(time.begin(), time.end()) * totalTrips;
 
         while(left <= right){
-            int mid = left + (right - left) / 2;
+            long long mid = left + (right - left) / 2;
             long long trips = 0;
 
             for(int t : time){
