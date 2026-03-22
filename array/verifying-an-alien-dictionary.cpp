@@ -7,8 +7,17 @@ public:
             rank[order[i]-'a'] = i; // h gets first index
         }
 
-        string w1 = words[0];
-        string w2 = words[1];
+
+        for(int i=0; i<words.size()-1; i++){
+            if(!compareWords(words[i], words[i+1], rank)){
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    bool compareWords(string& w1, string& w2, vector<int>& rank){
         int n = min(w1.size(), w2.size());
 
         for(int i=0; i<n; i++){
@@ -18,8 +27,5 @@ public:
         }
 
         return w1.size() <= w2.size();
-
-        return true;
-
     }
 };
