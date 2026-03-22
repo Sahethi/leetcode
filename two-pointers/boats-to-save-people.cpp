@@ -3,27 +3,28 @@ public:
     int numRescueBoats(vector<int>& people, int limit) {
 
         int boats = 0;
-        bool lastPersonCovered = false;
         sort(people.begin(), people.end());
-        int i;
-        for(i=0; i<people.size()-1; i++){
+        bool last = false;
+        for(int i=0; i<people.size()-1; i++){
             if(people[i] + people[i+1] <= limit) {
                 boats++;
                 i++;
-                lastPersonCovered = true;
+                if(i == people.size()-1) last = true;
             }else{
                 if(people[i] <= limit){
                     boats++;
                 }
-                lastPersonCovered = false;
+                last = false;
             }
         }
 
-        if(!lastPersonCovered){
+        if(!last){
             if(people[people.size()-1] <= limit){
                 boats++;
             }
         }
+
+
         return boats;
     }
 };
