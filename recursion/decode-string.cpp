@@ -8,19 +8,13 @@ public:
         for(char c : s){
             if(isdigit(c)){
                 currNum = currNum * 10 + (c - '0');
-            }
-
-            if(isalpha(c)){
+            } else if(isalpha(c)){
                 currStr += c;
-            }
-
-            if(c == '['){
+            } else if(c == '['){
                 st.push({currStr, currNum});
                 currStr = "";
                 currNum = 0;
-            }
-
-            if(c == ']'){
+            } else if(c == ']'){
                 auto topPair = st.top();
                 st.pop();
                 string temp = "";
