@@ -4,13 +4,8 @@ public:
         
         int len1 = word1.size();
         int len2 = word2.size();
-        int n;
-        if(len1 > len2){
-            n = len2;
-        }else{
-            n = len1;
-        }
-        n=min(len2, len1);
+        int n=min(len2, len1);
+        
         string res = "";
         int i;
         for(i=0; i<n; i++){
