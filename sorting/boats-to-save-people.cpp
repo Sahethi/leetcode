@@ -6,14 +6,9 @@ public:
         sort(people.begin(), people.end());
         int l = 0, r = people.size()-1;
         while(l <= r){
-            if(people[l] + people[r] <= limit){
-                boats++;
-                l++;
-                r--;
-            }else{
-                r--;
-                boats++;
-            }
+            if(people[l] + people[r] <= limit) l++;
+            r--;
+            boats++;
         }
 
         return boats;
