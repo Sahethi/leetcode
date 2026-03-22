@@ -12,10 +12,12 @@ public:
     }
     
     int pop() {
-        while(!pushStack.empty()){
-            int topEl = pushStack.top();
-            pushStack.pop();
-            popStack.push(topEl);
+        if (popStack.empty()) {
+            while(!pushStack.empty()){
+                int topEl = pushStack.top();
+                pushStack.pop();
+                popStack.push(topEl);
+            }
         }
         int remove = popStack.top();
         popStack.pop();
@@ -33,8 +35,7 @@ public:
     }
     
     bool empty() {
-        if(popStack.empty() && pushStack.empty()) return true;
-        return false;
+        return pushStack.empty() && popStack.empty();
     }
 };
 
