@@ -5,7 +5,7 @@ public:
         int n = matrix.size();
         int m = matrix[0].size();
         //adds dummy row and col of 0s
-        prefix = vector<vector<int>>(n+1, vector<int>(n+1, 0));
+        prefix = vector<vector<int>>(n+1, vector<int>(m+1, 0));
         //building the prefix
         for(int i=1; i<=n; i++){
             for(int j=1; j<=m; j++){
