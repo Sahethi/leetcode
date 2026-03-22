@@ -25,10 +25,12 @@ public:
     }
     
     int peek() {
-        while(!pushStack.empty()){
-            int topEl = pushStack.top();
-            pushStack.pop();
-            popStack.push(topEl);
+        if (popStack.empty()) {
+            while(!pushStack.empty()){
+                int topEl = pushStack.top();
+                pushStack.pop();
+                popStack.push(topEl);
+            }
         }
         int peeked = popStack.top();
         return peeked;
