@@ -29,8 +29,9 @@ public:
                 temp = temp->right;
             }
 
-            //replacing it with the largest value in the left subtree
+            //replaced the root with the largest value in left subtree
             root->val = temp->val;
+            //we have delete the duplicate
             root->left = deleteNode(root->left, temp->val);
         }
 
