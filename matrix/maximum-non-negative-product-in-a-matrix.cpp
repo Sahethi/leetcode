@@ -3,6 +3,7 @@ public:
     int maxProductPath(vector<vector<int>>& grid) {
         int m = grid.size();
         int n = grid[0].size();
+        int mod=1e9+7;
         //dp should have maxProd and minProd
         vector<vector<pair<long long, long long>>> dp(m, vector<pair<long long, long long>> (n));
         dp[0][0] = {grid[0][0], grid[0][0]};
@@ -35,8 +36,7 @@ public:
         }
 
         long long result = dp[m-1][n-1].first;
-
-        if(result >= 0) return result;
+        if(result >= 0) return result % mod;
         return -1;
     }
 };
