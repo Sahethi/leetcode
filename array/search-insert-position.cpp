@@ -4,7 +4,7 @@ public:
         int left = 0;
         int right = nums.size()-1;
         int mid = 0;
-        while(left <= right){
+        while(left < right){
             mid = left + (right - left) / 2;
 
             if(target > nums[mid]){
@@ -15,7 +15,7 @@ public:
                 return mid;
             }
         }
-        if(nums[right] < target) return mid + 1;
-        else return mid - 1;
+        if(nums[left] < target) return left+1;
+        else return left;
     }
 };
