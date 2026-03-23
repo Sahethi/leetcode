@@ -15,6 +15,7 @@ public:
                 return mid;
             }
         }
-        
+        if(nums[right] < target) return mid + 1;
+        else return mid - 1;
     }
 };
