@@ -6,7 +6,7 @@ public:
 
         vector<vector<int>> prodMat(m, vector<int>(n));
 
-        long long ans= 1;
+        unsigned long long ans= 1;
         for(int i=0; i<m; i++){
             for(int j=0; j<n; j++){
                 ans *= grid[i][j];
