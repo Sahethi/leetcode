@@ -25,6 +25,9 @@ public:
                     //left has duplicate
                     while(left < right && nums[left] == nums[left-1])
                         left++;
+
+                    while(left < right && nums[right] == nums[right+1])
+                        right--;
                 }
             }
         }   
