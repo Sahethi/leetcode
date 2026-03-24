@@ -13,7 +13,7 @@ public:
             }
             if(prefixIdx.find(prefixSum - k) != prefixIdx.end()){
                 maxLen = max(maxLen, i - prefixIdx[prefixSum - k]);
-            } else{
+            } else if (prefixIdx.find(prefixSum-k) == prefixIdx.end()) {
                 prefixIdx[prefixSum] = i;
             }
         }
