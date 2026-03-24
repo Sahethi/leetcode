@@ -31,7 +31,7 @@ class Solution {
 private:
     int dfs(vector<NestedInteger>& nestedList, int depth){
         int sum = 0;
-        for(auto ni : nestedList){
+        for(auto& ni : nestedList){
             if(ni.isInteger()){
                 sum += ni.getInteger() * depth;
             } else{
