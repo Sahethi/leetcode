@@ -18,7 +18,7 @@ public:
                 int right = nums.size() - 1;
 
                 while(left < right){
-                    sum = nums[left] + nums[right] + nums[i] + nums[j];
+                    sum = (long long)nums[left] + nums[right] + nums[i] + nums[j];
 
                     if(sum < target) left++;
                     else if(sum > target) right--;
