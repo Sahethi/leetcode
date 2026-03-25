@@ -5,7 +5,7 @@ public:
         int m = grid.size();
         int n = grid[0].size();
 
-        int sum = 0;
+        long long sum = 0;
         for(auto& row : grid){
             for(int val : row){
                 sum += val;
