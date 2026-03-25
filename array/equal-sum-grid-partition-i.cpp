@@ -18,7 +18,7 @@ public:
                 topSum += grid[i][j];
             }
 
-            int bottomSum = sum - topSum;
+            long long bottomSum = sum - topSum;
 
             if(bottomSum == topSum) return true;
         }
@@ -30,7 +30,7 @@ public:
                 leftSum += grid[i][j];
             }
 
-            int rightSum = sum - leftSum;
+            long long rightSum = sum - leftSum;
 
             if(rightSum == leftSum) return true;
         }
