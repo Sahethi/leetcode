@@ -8,11 +8,10 @@ public:
         //reverse first k elemenrs 5,6,7 then reverse remaining 1,2,3,4
         
         int n = nums.size();
-        if(n >= k){
-            reverse(nums.begin(), nums.end());
-            reverse(nums.begin(), nums.begin()+k);
-            reverse(nums.begin()+k, nums.end());
-        }
+        k = k % n;
+        reverse(nums.begin(), nums.end());
+        reverse(nums.begin(), nums.begin()+k);
+        reverse(nums.begin()+k, nums.end());
         
 
         /**
