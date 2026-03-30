@@ -11,16 +11,20 @@ class Solution {
 public:
     int guessNumber(int n) {
         
-        int pick = (rand() % n) + 1;
+        int l = 1;
+        int r = n;
 
-        while(guess(pick) != 0){
-            if(guess(pick) == -1){
-                pick = (rand() % n-1) + 1;
-            } else if(guess(pick) == 1){
-                pick = pick + 1;
+        while(l <= r){
+            int mid =  l + (r-l)/2;
+            int pick = guess(mid);
+            if(pick == -1){
+                r = mid - 1;
+            }else if(pick == 1){
+                l = mid + 1;
+            }else{
+                return mid;
             }
         }
-        return pick;
-
+        return 0;
     }
 };
