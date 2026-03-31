@@ -4,16 +4,16 @@ public:
         
         int sum = 0;
         int left = 0;
-        int windowSize = 0;
+        int windowSize = INT_MAX;
         for(int right=0; right<nums.size(); right++){
             sum += nums[right];
             while(sum >= target){
+                windowSize = min(windowSize, right - left + 1);
                 sum -= nums[left];
                 left++;
             }
-            windowSize = right - left + 1;
         }
 
-        return windowSize;
+        return windowSize == INT_MAX ? 0 : windowSize;
     }
 };
