@@ -16,18 +16,22 @@ public:
         u can solve this in this way 
         calculate it 
         **/
+        //because we need k elements our window size will be k
         int n = arr.size();
-        int left = 0, right = n-k;
-        while(left < right){
-            int mid = left + (right - left) / 2;
+        int left = 0;
+        int right = n - k;
+
+        while(left <= right){
+            int mid = left + (right - left)/2;
 
             if(x - arr[mid] > arr[mid+k] - x){
                 left = mid + 1;
             }else{
-                right = mid;
+                right = mid - 1;
             }
         }
-        return vector<int>(arr.begin() + left, arr.begin() + left +k);
+
+        return vector<int>(arr.begin()+left, arr.begin()+left+k);
 
 
     }
