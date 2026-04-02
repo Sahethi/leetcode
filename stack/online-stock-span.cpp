@@ -7,12 +7,14 @@ public:
     
     int next(int price) {
         stockPrice.push_back(price);
-        int span = 0;
-        for(int i=stockPrice.size()-1; i>=0; i--){
-            if(stockPrice[i] <= price){
-                span++;
-            }else{
+        int span = 1;
+        if(stockPrice.size() == 1) return 1;
+
+        for(int i=stockPrice.size()-2; i>=0; i--){
+            if(stockPrice[i] > price){
                 break;
+            }else{
+                span++;
             }
         }
         return span;
