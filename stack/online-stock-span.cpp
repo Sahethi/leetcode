@@ -1,6 +1,6 @@
 class StockSpanner {
 public:
-    stack<int> stockPrice;
+    stack<pair<int, int>> stockPrice;
     StockSpanner() {
         
     }
@@ -9,19 +9,14 @@ public:
     if incoming price is 
     **/
     int next(int price) {
-        if(stockPrice.empty()){
-            stockPrice.push(price);
-        } else {
-            if(stockPrice.top() > price){
-                while(!stockPrice.empty()){
-                    stockPrice.pop();
-                }
-                stockPrice.push(price);
-            }else{
-                stockPrice.push(price);
-            }
+        int span = 1;
+        while(!stockPrice.empty() && stockPrice.top().first <= price){
+            span += stockPrice.top().second;
+            stockPrice.pop();
         }
-        
+
+        stockPrice.push({price, span});
+        return span;
         
         // stockPrice.push_back(price);
         // int span = 1;
@@ -34,7 +29,6 @@ public:
         //         span++;
         //     }
         // }
-        return stockPrice.size();
     }
 };
 
