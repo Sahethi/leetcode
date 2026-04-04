@@ -14,11 +14,11 @@ public:
                     return false;
                 }
             }else{
-                if(countOf5 >= 3){
-                    countOf5 = countOf5 - 3;
-                }else if(countOf10 >= 1 && countOf5 >=1){
+                if(countOf10 >= 1 && countOf5 >=1){
                     countOf10--;
                     countOf5--;
+                } else if(countOf5 >= 3){
+                    countOf5 = countOf5 - 3;
                 }else{
                     return false;
                 }
