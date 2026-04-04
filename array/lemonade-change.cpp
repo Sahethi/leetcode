@@ -7,7 +7,7 @@ public:
             if(bills[i] == 5){
                 countOf5++;
             }else{
-                int n = (bills[i] / 5) - 1;
+                int n = (bills[i] / 5);
                 if(n <= countOf5) {
                     continue;
                 } else {
