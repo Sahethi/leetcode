@@ -9,7 +9,10 @@ public:
             int mid = left + (right - left)/2;
 
             if(nums[mid] == target) return true;
-            if(nums[left] < nums[mid]){
+            if(nums[left] == nums[mid] && nums[mid] == nums[right]){
+                left++;
+                right--;
+            } else if(nums[left] < nums[mid]){
                 //left half is sorted so?
                 if(nums[left] <= target && target < nums[mid]){
                     right = mid-1;
@@ -23,9 +26,6 @@ public:
                 }else{
                     right = mid-1;
                 }
-            }else if(nums[left] == nums[mid] && nums[mid] == nums[right]){
-                left++;
-                right--;
             }
        }
 
