@@ -20,7 +20,8 @@ public:
             double ansDiff = abs(ans - target);
 
 
-            if(abs(root->val - target) < abs(ans - target) || currDiff == ansDiff && root->val < ans){
+            if(abs(root->val - target) < abs(ans - target) 
+            || currDiff == ansDiff && root->val < ans){
                 ans = root->val;
             }else{
                 if(target < root->val){
