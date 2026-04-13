@@ -25,7 +25,7 @@ public:
 
         //binary search
         int left = 0;
-        int right = arr.size()-1;
+        int right = arr.size()-k;
 
         while(left < right){
             int mid = left + (right - left)/2;
