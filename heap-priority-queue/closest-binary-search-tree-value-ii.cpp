@@ -22,19 +22,37 @@ public:
         //this is like inorder traversal. + sliding window or binary search
         vector<int> arr;
         inorder(root, arr);
+
+        //binary search
         int left = 0;
+        int right = arr.size()-1;
 
-        while(left + k < arr.size()){
-            if(abs(arr[left] - target) > abs(arr[left + k] - target)){
-                left++;
-            }else break;
+        while(left < right){
+            int mid = left + (right - left)/2;
+
+            if(abs(arr[mid] - target) > abs(arr[mid+k] - target)){
+                left = mid+1;
+            }else{
+                right = mid;
+            }
         }
 
-        vector<int> result;
-        for(int i=left; i<left+k; i++){
-            result.push_back(arr[i]);
-        }
+        return vector<int>(arr.begin()+left, arr.begin()+left+k);
 
-        return result;
+        //sliding window
+        // int left = 0;
+
+        // while(left + k < arr.size()){
+        //     if(abs(arr[left] - target) > abs(arr[left + k] - target)){
+        //         left++;
+        //     }else break;
+        // }
+
+        // vector<int> result;
+        // for(int i=left; i<left+k; i++){
+        //     result.push_back(arr[i]);
+        // }
+
+        // return result;
     }
 };
