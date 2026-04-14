@@ -8,7 +8,7 @@ public:
         else if(n == 3) return 2;
 
         int first = 0, second = 1, third = 1;
-        int sum = 0;
+        long long sum = 0;
 
         for(int i=0; i<n; i++){
             sum = first + second + third;
