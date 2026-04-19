@@ -14,9 +14,9 @@ public:
         long long rev = 0;
         int temp = n;
         while(n != 0){
-            rev = rev * 10;
-            rev += n % 10;
+            int digit = n % 10;
             n = n / 10;
+            rev = rev * 10 + digit;
         }
 
         return abs(temp - rev);
