@@ -4,7 +4,7 @@ public:
         //we have to sort by enqueue time and then process accordingly
         
         //creating arr to have the indices of the original array, as thats what we have to return
-        vector<vector<int>> arr;
+        vector<vector<long long>> arr;
         vector<int> result;
         int n = tasks.size();
         for(int i=0; i<n; i++){
@@ -17,7 +17,7 @@ public:
 
         int i=0, time=0;
         //we need min-heap as pq is by deault max
-        priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int,int>> > pq;
+        priority_queue<pair<long long, int>, vector<pair<long long, int>>, greater<pair<long long,int>> > pq;
 
         while(i<n || !pq.empty()){
             while(i<n && arr[i][0] <= time){
