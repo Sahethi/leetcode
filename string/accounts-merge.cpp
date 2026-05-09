@@ -3,9 +3,9 @@ private:
     vector<int> parent;
     
 public:
-    UnionFind(int N) {
-        parent.resize(N);
-        for (int i = 0; i < N; i++) {
+    UnionFind(int n) {
+        parent.resize(n);
+        for (int i=0; i<n; i++) {
             parent[i] = i;
         }
     }
@@ -19,12 +19,12 @@ public:
     }
     
     void unify(int x, int y) {
-        int rx = find(x);
-        int ry = find(y);
-        if (rx < ry) {
-            parent[ry] = parent[rx];
+        int rootX = find(x);
+        int rootY = find(y);
+        if (rootX < rootY) {
+            parent[rootY] = parent[rootX];
         } else {
-            parent[rx] = parent[ry];
+            parent[rootX] = parent[rootY];
         }
     }
 };
@@ -32,17 +32,17 @@ public:
 class Solution {
 public:
     vector<vector<string>> accountsMerge(vector<vector<string>>& accounts) {
-        int N = accounts.size();
-        UnionFind uf(N);
+        int n = accounts.size();
+        UnionFind uf(n);
         
         unordered_map<string, int> emails;  // email -> account ID
         unordered_map<int, string> name;    // account ID -> name
         unordered_map<string, int> seen;    // email -> first account ID
         
         // Phase 1: Build unions based on shared emails
-        for (int id = 0; id < N; id++) {
+        for (int id=0; id<n; id++) {
             name[id] = accounts[id][0];
-            for (int i = 1; i < accounts[id].size(); i++) {
+            for (int i=1; i<accounts[id].size(); i++) {
                 string email = accounts[id][i];
                 emails[email] = id;
                 if (seen.count(email)) {
