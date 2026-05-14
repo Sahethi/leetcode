@@ -8,7 +8,7 @@ public:
             int start = i;
             int j = i;
 
-            while(j < nums.size() && nums[j+1] == nums[j]+1){
+            while(j < nums.size()-1 && nums[j+1] == nums[j]+1){
                 j++;
             }
 
