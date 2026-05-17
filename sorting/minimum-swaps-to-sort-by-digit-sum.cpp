@@ -1,43 +1,46 @@
 class Solution {
-    int digitSum(int x) {
+    int digitSum(int num){
         int sum = 0;
-        while (x) {
-            sum += x % 10;
-            x /= 10;
+        while(num){
+            sum += num % 10;
+            num = num/10;
         }
         return sum;
     }
 public:
     int minSwaps(vector<int>& nums) {
-        int n = nums.size();
+        //basically cycle sort
 
-        vector<pair<pair<int,int>, int>> arr;
+        int n = nums.size();
+        
+        vector<pair<pair<int, int>, int>> arr;
         // {{digitSum, value}, original_index}
 
-        for (int i = 0; i < n; i++) {
+        for(int i=0; i<n; i++){
             arr.push_back({{digitSum(nums[i]), nums[i]}, i});
         }
 
         sort(arr.begin(), arr.end());
 
         vector<bool> visited(n, false);
-        int swaps = 0;
+        int swaps=0;
 
-        for (int i = 0; i < n; i++) {
-            if (visited[i] || arr[i].second == i) continue;
+        for(int i=0; i<n; i++){
+            //if its already visited and in correct position then skip
+            if(visited[i] || arr[i].second == i) continue;
 
-            int cycle_size = 0;
+            int cycleSize = 0;
             int j = i;
 
-            while (!visited[j]) {
+            while(!visited[j]){
                 visited[j] = true;
                 j = arr[j].second;
-                cycle_size++;
+                cycleSize++;
             }
 
-            if (cycle_size > 1) {
-                swaps += (cycle_size - 1);
-            }
+            // if(cycleSize > 1){
+            swaps  += (cycleSize - 1);
+            // }
         }
 
         return swaps;
