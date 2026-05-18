@@ -29,7 +29,7 @@ public:
                 if(node->left) q.push(node->left);
                 if(node->right) q.push(node->right);
             }
-            int sum = 0;
+            long sum = 0;
             double avg = 0.0;
             for(int i=0; i<level.size(); i++){
                 sum += level[i];
