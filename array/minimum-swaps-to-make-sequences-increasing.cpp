@@ -12,7 +12,9 @@ public:
             if(nums1[i-1] < nums1[i] && nums2[i-1] < nums2[i]){
                 newKeep = min(newKeep, keep);
                 newSwap = min(newSwap, swap+1);
-            }else if(nums1[i-1] < nums2[i] && nums2[i-1] < nums1[i]){
+            }
+            
+            if(nums1[i-1] < nums2[i] && nums2[i-1] < nums1[i]){
                 newKeep = min(newKeep, swap);
                 newSwap = min(newSwap, keep+1);
             }
