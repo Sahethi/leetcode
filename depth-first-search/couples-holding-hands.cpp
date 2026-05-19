@@ -15,9 +15,9 @@ public:
             int partnerIdx = valueAndPos[partner];
 
             swap(row[i+1], row[partnerIdx]);
-            int A = row[i+1];
-            valueAndPos[partner] = i+1;
-            valueAndPos[A] = partnerIdx;
+
+            valueAndPos[row[partnerIdx]] = partnerIdx;
+            valueAndPos[row[i+1]] = i+1;
 
             swaps++;
         }
