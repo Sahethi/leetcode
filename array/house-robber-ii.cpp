@@ -5,20 +5,21 @@ public:
         if(n == 1) return nums[0];
 
         return max(
-            robHouse(nums, 1, n-1), 
-            robHouse(nums, 0, n-2)
-            );
+            robHouse(0, n-2, nums),
+            robHouse(1, n-1, nums)
+        );
     }
 
-    int robHouse(vector<int>& nums, int start, int end){
-        int prev2 = 0;
-        int prev1 = 0;
-        for(int i = start; i<=end; i++){
-            int curr = max(nums[i] + prev2, prev1);
+    int robHouse(int start, int end, vector<int>& nums){
+        int prev2 = 0, prev1 = 0;
+
+        for(int i=start; i<=end; i++){
+            int curr = max(prev2+nums[i], prev1);
 
             prev2 = prev1;
             prev1 = curr;
         }
+
         return prev1;
     }
 };
