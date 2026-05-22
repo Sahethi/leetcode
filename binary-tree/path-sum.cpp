@@ -11,17 +11,18 @@
  */
 class Solution {
 private: 
-    bool dfs(TreeNode* node, int target, int sum){
-        if(node == NULL) return false;
-        sum += node->val;
-        
-        if(sum == target && node->left == NULL && node->right == NULL) return true;
-        return dfs(node->left, target, sum) || dfs(node->right, target, sum);
+    bool dfs(TreeNode* root, int target, int sum){
+        if(root == NULL) return false;
 
+        sum += root->val;
+
+        if(sum == target && root->left == NULL && root->right == NULL) return true;
+
+        return dfs(root->left, target, sum) || dfs(root->right, target, sum);
     }
 public:
     bool hasPathSum(TreeNode* root, int targetSum) {
-        int sum = 0;  
+        int sum = 0;
         return dfs(root, targetSum, sum);
     }
 };
