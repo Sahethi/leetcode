@@ -10,27 +10,24 @@
  * };
  */
 class Solution {
+    void path(TreeNode* root, vector<string>& result, string ans){
+        if(root == NULL) return;
+
+        ans += to_string(root->val);
+        if(root->left == NULL && root->right == NULL){
+            result.push_back(ans);
+        }
+        ans += "->";
+        path(root->left, result, ans);
+        path(root->right, result, ans);
+    }
 public:
     vector<string> binaryTreePaths(TreeNode* root) {
         vector<string> result;
-        string ans="";
+        string ans = "";
         path(root, result, ans);
 
         return result;
     }
 
-    void path(TreeNode* root, vector<string>& result, string ans){
-        if(root == NULL) return;
-        ans += to_string(root->val);
-
-
-        if(root->left == NULL && root->right == NULL){
-            result.push_back(ans);
-            return;
-        }
-        ans += "->";
-        path(root->left, result, ans);
-        path(root->right, result, ans);
-
-    }
 };
