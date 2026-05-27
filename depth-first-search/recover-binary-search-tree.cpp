@@ -1,33 +1,33 @@
 class Solution {
-    TreeNode first;
-    TreeNode second;
-    TreeNode prev;
+public:
+    TreeNode* first = nullptr; // First misplaced node
+    TreeNode* second = nullptr; // Second misplaced node
+    TreeNode* prev = nullptr; // Keeps track of the previous node during traversal
 
-    public void recoverTree(TreeNode root) {
-        helper(root);
-        // Swap the values of the two misplaced nodes
-        int temp = first.val;
-        first.val = second.val;
-        second.val = temp;
-    }
+    void recoverTree(TreeNode* root) {
+        inorder(root);
 
-    void helper(TreeNode node) {
-        if (node == null) return;
-
-        // Traverse left subtree
-        helper(node.left);
-
-        // Detect swapped nodes
-        if (prev != null && prev.val > node.val) {
-            if (first == null) {
-                first = prev;
-            }
-            second = node;
+        // Swap the values of the two nodes
+        if (first && second) {
+            int temp = first->val;
+            first->val = second->val;
+            second->val = temp;
         }
-
-        prev = node;
-
-        // Traverse right subtree
-        helper(node.right);
     }
-}
+
+    void inorder(TreeNode* node) {
+        if (!node) return;
+
+        inorder(node->left); // Visit left subtree
+
+        if (prev && prev->val > node->val) {
+            if (!first) {
+                first = prev; // Mark the first violation
+            }
+            second = node; // Mark the second violation
+        }
+        prev = node; // Update `prev` to current node
+
+        inorder(node->right); // Visit right subtree
+    }
+};
