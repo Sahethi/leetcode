@@ -11,7 +11,7 @@
  */
 class Solution {
 public:
-    int prefixSum = 0;
+    long long prefixSum = 0;
     unordered_map<long long, long long> count;
     
     int ans = 0;
