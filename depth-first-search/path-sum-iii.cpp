@@ -12,9 +12,9 @@
 class Solution {
 public:
     int prefixSum = 0;
-    unordered_map<int, int> count;
-    count[0] = 1; 
-    int count = 0;
+    unordered_map<int, long long> count;
+    
+    int ans = 0;
     void dfs(TreeNode* root, int targetSum){
         if(root == NULL) return;
 
@@ -23,21 +23,22 @@ public:
         8 + 3 = 11 - 11 = 0
         **/
         prefixSum += root->val;
-        if(count[prefixSUm - targetSum] > 0){
-            count += count[prefixSum - targetSum];
+        if(count[prefixSum - targetSum] > 0){
+            ans += count[prefixSum - targetSum];
         }
         count[prefixSum]++;
 
         dfs(root->left, targetSum);
         dfs(root->right, targetSum);
-        
 
+        count[prefixSum]--;
+        prefixSum -= root->val;
     }
     int pathSum(TreeNode* root, int targetSum) {
         // so im thinking
         // discover tree paths -> array subarray sum
-
+        count[0] = 1; 
         dfs(root, targetSum);
-        return count;
+        return ans;
     }
 };
