@@ -12,7 +12,7 @@
 class Solution {
 public:
     int prefixSum = 0;
-    unordered_map<int, long long> count;
+    unordered_map<long long, long long> count;
     
     int ans = 0;
     void dfs(TreeNode* root, int targetSum){
