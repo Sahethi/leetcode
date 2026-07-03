@@ -16,12 +16,10 @@ public:
         vector<int> res = {1};
         int ans = 1;
         for(int i=1; i<=rowIndex; i++){
-            ans = ans * (n / i);
+            ans = (ans * n) / i;
             n--;
             res.push_back(ans);
-            if(n == 1) break;
         }
-        res.push_back(1);
         return res;
     }
 };
