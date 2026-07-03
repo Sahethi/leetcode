@@ -15,7 +15,7 @@ public:
         int n = rowIndex;
         vector<int> res = {1};
         int ans = 1;
-        for(int i=1; i<rowIndex; i++){
+        for(int i=1; i<=rowIndex; i++){
             ans = ans * (n / i);
             n--;
             res.push_back(ans);
