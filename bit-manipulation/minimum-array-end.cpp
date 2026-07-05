@@ -4,7 +4,7 @@ public:
         vector<long long> nums;
 
         nums.push_back(x);
-        long long candidate = x + 1ll;
+        long long candidate = x + 1;
 
         while(nums.size() < n){
             if((candidate & x) == x) {
