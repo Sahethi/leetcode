@@ -19,14 +19,13 @@ public:
         long long k = n-1;
         for(int i=0; i<63; i++){
 
-            if(((x >> i) & 1) == 0){
+            if((((long long)x >> i) & 1) == 0){
                 if(k & 1){
                     ans |= (1LL << i);
                 }
                 k >>= 1;
                 if(k == 0) break;
             }
-
         }
 
         return ans;
