@@ -1,7 +1,7 @@
 class Solution {
 public:
     long long sumAndMultiply(int n) {
-        int sum = 0;
+        long long sum = 0;
         string ans = "";
         string s = to_string(n);
 
@@ -14,7 +14,7 @@ public:
 
         if(ans == "") ans = "0";
 
-        int x = stoi(ans);
+        long long x = stoi(ans);
 
 
         return x * sum;
