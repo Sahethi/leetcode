@@ -11,7 +11,7 @@ public:
         int length = 0;
         int count = 0;
         for(auto [c, inc] : freq){
-            if(inc == 1){
+            if(inc%2 ==1){
                 count++;
             }
             if(inc >= 2){
