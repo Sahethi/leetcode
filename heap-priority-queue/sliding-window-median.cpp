@@ -3,8 +3,6 @@ public:
     vector<double> medianSlidingWindow(vector<int>& nums, int k) {
         
         vector<double> res;
-
-        double median;
         int n = nums.size();
 
         for(int i=0; i<=n-k; i++){
@@ -13,7 +11,13 @@ public:
 
             sort(window.begin(), window.end());
 
-            double m = ceil(window[k/2]);
+            double m;
+            if(k % 2 == 1){
+                m = window[k/2];
+            }else{
+                m = (double)(window[k/2 - 1] + window[k/2]) / 2.0;
+            }
+
             res.push_back(m);
         }      
 
