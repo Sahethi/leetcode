@@ -20,7 +20,7 @@ public:
                 res.push_back(*it);
             }else{
                 auto prevIt = prev(it);
-                res.push_back(((double)(*prevIt + *it)) / 2.0);
+                res.push_back(((double)(*prevIt) + *it) / 2.0);
             }
 
             if(i == n-k) break;
