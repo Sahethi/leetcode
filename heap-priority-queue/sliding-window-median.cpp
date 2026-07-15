@@ -13,7 +13,7 @@ public:
 
             sort(window.begin(), window.end());
 
-            double m = window[k/2];
+            double m = ceil(window[k/2]);
             res.push_back(m);
         }      
 
