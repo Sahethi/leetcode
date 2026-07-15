@@ -15,7 +15,7 @@ public:
             if(k % 2 == 1){
                 m = window[k/2];
             }else{
-                m = (double)(window[k/2 - 1] + window[k/2]) / 2.0;
+                m = ((double)window[k/2 - 1] + window[k/2]) / 2.0;
             }
 
             res.push_back(m);
