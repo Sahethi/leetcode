@@ -7,7 +7,7 @@ public:
 
         for(int i=0; i<=n-k; i++){
 
-            vector<int> window(nums.begin() + i, nums.begin() + i + k);
+            vector<int> window(nums.begin() +i, nums.begin() + i + k);
             sort(window.begin(), window.end());
 
             double m;
