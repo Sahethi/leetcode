@@ -3,33 +3,40 @@ public:
     vector<double> medianSlidingWindow(vector<int>& nums, int k) {
         
         vector<double> res;
-        multiset<int> window;
+
         int n = nums.size();
 
-        for(int i=0; i<k; i++){
-            window.insert(nums[i]);
-        }
+        multiset<int> window(nums.begin(), nums.begin()+k);
+        auto mid = next(window.begin(), k/2);
 
-        for(int i=0; i<=n-k; i++){
-            auto it = window.begin();
 
-            advance(it, k/2);
-            
-            // double m;
-            if(k % 2 == 1){
-                res.push_back(*it);
+        for(int i=k; ;i++){
+
+            if(k % 2){
+                res.push_back(*mid);
             }else{
-                auto prevIt = prev(it);
-                res.push_back(((double)(*prevIt) + *it) / 2.0);
+                auto prevMid = prev(mid);
+                res.push_back(((double)(*prevMid) + *mid) / 2.0);
             }
 
-            if(i == n-k) break;
+            if (i == nums.size())
+                break;
 
-            window.erase(window.find(nums[i]));
-            window.insert(nums[i+k]);
+            // Insert incoming element
+            window.insert(nums[i]);
+
+            if (nums[i] < *mid)
+                mid--;
+
+            // Remove outgoing element
+            if (nums[i - k] <= *mid)
+                mid++;
+
+            window.erase(window.lower_bound(nums[i - k]));
         }
 
         return res;
+
         /**
         vector<double> res;
         int n = nums.size();
