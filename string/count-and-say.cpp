@@ -16,7 +16,7 @@ public:
                 
                 int count = 1;
 
-                while(s[j+1] && s[j] == s[j+1]){
+                while(j + 1 < s.length() && s[j] == s[j+1]){
                     j++;
                     count++;
                 }
