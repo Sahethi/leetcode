@@ -9,7 +9,7 @@ public:
             ans ^= n;
         }
 
-        int mask = ans & (-ans);
+        long long mask = ans & (-ans);
 
         int a = 0, b = 0;
 
