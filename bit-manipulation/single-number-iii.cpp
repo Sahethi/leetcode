@@ -1,8 +1,7 @@
 class Solution {
 public:
     vector<int> singleNumber(vector<int>& nums) {
-        
-        vector<int> res;
+    
         int ans = 0;
 
         //xor result of two unique1 ^ unique2 are left
@@ -10,7 +9,7 @@ public:
             ans ^= n;
         }
 
-        int mask = ans ^ (-ans);
+        int mask = ans & (-ans);
 
         int a=0, b=0;
 
