@@ -4,21 +4,20 @@ public:
     
         int ans = 0;
 
-        //xor result of two unique1 ^ unique2 are left
-        for(int n : nums){
+        // XOR of the two unique numbers
+        for (int n : nums) {
             ans ^= n;
         }
 
         int mask = ans & (-ans);
 
-        int a=0, b=0;
+        int a = 0, b = 0;
 
-        for(int n : nums){
-            if(n & mask){
+        for (int n : nums) {
+            if (n & mask)
                 a ^= n;
-            }else{
+            else
                 b ^= n;
-            }
         }
 
         return {a, b};
