@@ -2,7 +2,7 @@ class Solution {
 public:
     vector<int> singleNumber(vector<int>& nums) {
     
-        int ans = 0;
+        long long ans = 0;
 
         // XOR of the two unique numbers
         for (int n : nums) {
