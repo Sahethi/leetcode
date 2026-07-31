@@ -15,9 +15,16 @@ public:
             if(s[i] == '-') sign = -1;
             i++;
         }
-        
+
         while(i<n && isdigit(s[i])){
             int digit = s[i] - '0';
+
+            //overflow condition
+            if(result > INT_MAX/10 || result == INT_MAX/10 && digit > 7){
+                return (sign == 1) ? INT_MAX : INT_MIN;
+            }
+
+
             result = result * 10 + digit;
             i++;
         }
