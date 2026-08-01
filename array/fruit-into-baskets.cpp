@@ -9,7 +9,6 @@ public:
 
         unordered_map<int, int> mp;
         int maxWindow = 0;
-        int dist = 0;
         int left = 0;
         //if my window has more than 1 type keep moving the left pointer
 
@@ -26,8 +25,7 @@ public:
                 left++;
             }
             
-            dist = i - left + 1; 
-            maxWindow = max(maxWindow, dist);
+            maxWindow = max(maxWindow,  i - left + 1);
         }
 
         return maxWindow;
