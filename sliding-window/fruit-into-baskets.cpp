@@ -10,21 +10,24 @@ public:
         unordered_map<int, int> mp;
         int maxWindow = 0;
         int dist = 0;
-        int left = 0, right = 0;
+        int left = 0;
         //if my window has more than 1 type keep moving the left pointer
 
 
         for(int i=0; i<fruits.size(); i++){
+            
             mp[fruits[i]]++;
-            right++;
-            dist = right - left;
-            maxWindow = max(maxWindow, dist);
 
             while(mp.size() > 2){
+                mp[fruits[left]]--;
+                if(mp[fruits[left]] == 0){
+                    mp.erase(fruits[left]);
+                }
                 left++;
-                mp[fruits[i]]--;
-                if(mp[fruits[i]] == 0) mp.erase(fruits[i]);
             }
+            
+            dist = i - left + 1; 
+            maxWindow = max(maxWindow, dist);
         }
 
         return maxWindow;
