@@ -7,16 +7,16 @@ public:
         int n = s.length();
 
         for(right = 0; right < n; right++){
-            // if(freq[s[right]] == 0){
-            //     freq[s[right]]++;
-            // }else{
-            //     //badicallhfkjsdf
+            if(freq[s[right]] == 0){
+                freq[s[right]]++;
+            }else{
+                //badicallhfkjsdf
                 while(freq[s[right]]){
                     freq[s[left]]--;
                     left++;
                 }
                 freq[s[right]]++;
-            // }
+            }
             maxLen = max(maxLen, right - left + 1);
         }
 
