@@ -1,23 +1,25 @@
 class Solution {
 public:
     vector<vector<string>> suggestedProducts(vector<string>& products, string searchWord) {
-        int n=products.size();
-        sort(products.begin(),products.end());
-        vector<vector<string>>ans;
-        vector<string>temp;
-        string curr="";
-        for(auto c:searchWord){
-            curr+=c;                // adding character, like -> m-->mo-->mou-->mous--->mouse
-            temp.clear();         //reusing the same vector
-            for(int i=0;i<n;i++){
-                string s=products[i];
-                if(s.substr(0,curr.length())==curr){              //finding the prefix containing words in the list
-                    temp.push_back(s);
-                }
-                if(temp.size()==3)break;         //question asked for 3 words so we break at 3
+        vector<vector<string>> result;
+        sort(products.begin(), products.end());
+        string prefix = "";
+
+        for(char c : searchWord){
+            prefix += c;
+            auto it = lower_bound(products.begin(), products.end(), prefix);
+            int idx = it - products.begin();
+
+            vector<string> topThreeStrings;
+            int topThree = 0;
+            for(int i=idx; i<products.size(); i++){
+                topThree++;
+                topThreeStrings.push_back(products[i]);
+                if(topThree == 3) break;
             }
-            ans.push_back(temp);
+            result.push_back(topThreeStrings);
         }
-        return ans;
+
+        return result;
     }
 };
