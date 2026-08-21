@@ -14,7 +14,8 @@ public:
             int topThree = 0;
             for(int i=idx; i<products.size(); i++){
                 topThree++;
-                topThreeStrings.push_back(products[i]);
+                if(products[i].starts_with(prefix))
+                    topThreeStrings.push_back(products[i]);
                 if(topThree == 3) break;
             }
             result.push_back(topThreeStrings);
