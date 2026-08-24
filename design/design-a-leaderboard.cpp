@@ -7,6 +7,12 @@ public:
     }
     
     void addScore(int playerId, int score) {
+        for(auto &p : leaderboard){
+            if(p.second == playerId){
+                p.first += score;
+                return;
+            }
+        }
         leaderboard.push_back({score, playerId});
     }
     
