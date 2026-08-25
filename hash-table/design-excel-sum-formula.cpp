@@ -4,21 +4,26 @@ private:
     //but u need to store formulas
     vector<vector<vector<pair<int,int>>>> formula;
 
-    int evaluate(int r, int c){
+    int evaluate(int r, int c, vector<vector<int>>& memo){
+
+        if(memo[r][c] != -1){
+            return memo[r][c];
+        }
+
         if(formula[r][c].empty()){
-            return grid[r][c];
+            return memo[r][c] = grid[r][c];
         }
 
         int ans = 0;
         for(auto [rr,cc] : formula[r][c]){
-            ans += evaluate(rr,cc); //recursively find value sort of dfs
+            ans += evaluate(rr, cc, memo); //recursively find value sort of dfs
         }
-        return ans;
+        return memo[r][c] = ans;
     }
+
 public:
     Excel(int height, char width) {
         grid.resize(height, vector<int>(width - 'A' + 1, 0));
-
         formula.resize(height, vector<vector<pair<int,int>>>(width - 'A' + 1));
     }
     
@@ -28,7 +33,11 @@ public:
     }
     
     int get(int row, char column) {
-        return evaluate(row-1, column - 'A');
+        vector<vector<int>> memo(grid.size(), 
+        vector<int>(grid[0].size(), -1)
+        );
+
+        return evaluate(row-1, column - 'A', memo);
     }
     
     int sum(int row, char column, vector<string> numbers) {
@@ -39,7 +48,6 @@ public:
         //forget whatever formula was there before
         formula[r][c].clear();
 
-        int ans = 0;
         for(string s : numbers){
             //here string can be A1 or A1:B2
             if(s.find(':') == string::npos){
@@ -68,7 +76,11 @@ public:
                 }
             }
         }
-        return evaluate(r,c);
+
+        vector<vector<int>> memo(grid.size(), 
+        vector<int>(grid[0].size(), -1));
+
+        return evaluate(r,c, memo);
     }
 };
 
