@@ -1,61 +1,63 @@
 class TicTacToe {
     vector<vector<int>> board;
+    int n;
 
 public:
     TicTacToe(int n) {
+        this->n = n;
         board.resize(n, vector<int>(n, 0));
     }
     
     int move(int row, int col, int player) {
         board[row][col] = player;
 
-        // Row 0
-        if (board[0][0] != 0 &&
-            board[0][0] == board[0][1] &&
-            board[0][1] == board[0][2])
-            return board[0][0];
+        // Check row
+        bool win = true;
+        for (int j = 0; j < n; j++) {
+            if (board[row][j] != player) {
+                win = false;
+                break;
+            }
+        }
+        if (win) return player;
 
-        // Row 1
-        if (board[1][0] != 0 &&
-            board[1][0] == board[1][1] &&
-            board[1][1] == board[1][2])
-            return board[1][0];
+        // Check column
+        win = true;
+        for (int i = 0; i < n; i++) {
+            if (board[i][col] != player) {
+                win = false;
+                break;
+            }
+        }
+        if (win) return player;
 
-        // Row 2
-        if (board[2][0] != 0 &&
-            board[2][0] == board[2][1] &&
-            board[2][1] == board[2][2])
-            return board[2][0];
+        // Check main diagonal
+        if (row == col) {
+            win = true;
 
-        // Column 0
-        if (board[0][0] != 0 &&
-            board[0][0] == board[1][0] &&
-            board[1][0] == board[2][0])
-            return board[0][0];
+            for (int i = 0; i < n; i++) {
+                if (board[i][i] != player) {
+                    win = false;
+                    break;
+                }
+            }
 
-        // Column 1
-        if (board[0][1] != 0 &&
-            board[0][1] == board[1][1] &&
-            board[1][1] == board[2][1])
-            return board[0][1];
+            if (win) return player;
+        }
 
-        // Column 2
-        if (board[0][2] != 0 &&
-            board[0][2] == board[1][2] &&
-            board[1][2] == board[2][2])
-            return board[0][2];
+        // Check anti-diagonal
+        if (row + col == n - 1) {
+            win = true;
 
-        // Main diagonal
-        if (board[0][0] != 0 &&
-            board[0][0] == board[1][1] &&
-            board[1][1] == board[2][2])
-            return board[0][0];
+            for (int i = 0; i < n; i++) {
+                if (board[i][n - 1 - i] != player) {
+                    win = false;
+                    break;
+                }
+            }
 
-        // Anti-diagonal
-        if (board[0][2] != 0 &&
-            board[0][2] == board[1][1] &&
-            board[1][1] == board[2][0])
-            return board[0][2];
+            if (win) return player;
+        }
 
         return 0;
     }
