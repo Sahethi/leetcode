@@ -1,19 +1,15 @@
 class TicTacToe {
     vector<vector<int>> board;
-    /**
-      0 1 2
-    0
-    1
-    2
-    **/
+
 public:
     TicTacToe(int n) {
-        board.resize(n, vector<int>(n,0));
+        board.resize(n, vector<int>(n, 0));
     }
     
     int move(int row, int col, int player) {
         board[row][col] = player;
 
+        // Row 0
         if (board[0][0] != 0 &&
             board[0][0] == board[0][1] &&
             board[0][1] == board[0][2])
@@ -64,9 +60,3 @@ public:
         return 0;
     }
 };
-
-/**
- * Your TicTacToe object will be instantiated and called as such:
- * TicTacToe* obj = new TicTacToe(n);
- * int param_1 = obj->move(row,col,player);
- */
