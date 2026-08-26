@@ -11,52 +11,48 @@ public:
     int move(int row, int col, int player) {
         board[row][col] = player;
 
-        // Check row
+        //check for diff row
         bool win = true;
-        for (int j = 0; j < n; j++) {
-            if (board[row][j] != player) {
+        for(int i=0; i<n; i++){
+            if(board[i][col] != player){
                 win = false;
                 break;
             }
         }
-        if (win) return player;
+        if(win) return player;
 
-        // Check column
+        //check for diff cols
         win = true;
-        for (int i = 0; i < n; i++) {
-            if (board[i][col] != player) {
+        for(int i=0; i<n; i++){
+            if(board[row][i] != player){
                 win = false;
                 break;
             }
         }
-        if (win) return player;
+        if(win) return player;
 
-        // Check main diagonal
-        if (row == col) {
+        //check for diagonal
+        if(row == col){
             win = true;
-
-            for (int i = 0; i < n; i++) {
-                if (board[i][i] != player) {
+            for(int i=0; i<n; i++){
+                if(board[i][i] != player){
                     win = false;
                     break;
                 }
             }
-
-            if (win) return player;
+            if(win) return player;
         }
 
-        // Check anti-diagonal
-        if (row + col == n - 1) {
+        //ahhh i see if row + col is equal to n-1 if its anti diagonal
+        if(row + col == n-1){
             win = true;
-
-            for (int i = 0; i < n; i++) {
-                if (board[i][n - 1 - i] != player) {
+            for(int i=0; i<n; i++){
+                if(board[i][n-1-i] != player){
                     win = false;
                     break;
                 }
             }
-
-            if (win) return player;
+            if(win) return player;
         }
 
         return 0;
