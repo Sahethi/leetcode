@@ -19,6 +19,7 @@ class Solution {
         rightSum = dfs(node->right);
 
         totalTilt += abs(leftSum - rightSum);
+
         return node->val + leftSum + rightSum;
     }
 public:
