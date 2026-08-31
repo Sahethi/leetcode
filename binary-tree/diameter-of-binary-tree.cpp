@@ -14,14 +14,13 @@ class Solution {
 public:
     int dfs(TreeNode* root){
         if(root == NULL) return 0;
-        int leftHeight = 0, rightHeight = 0;
 
+        int leftHeight = 0, rightHeight = 0, currDia = 0;
         leftHeight = dfs(root->left);
         rightHeight = dfs(root->right);
+        currDia = leftHeight + rightHeight;
 
-        int currDia = leftHeight + rightHeight;
-
-        diameter = max(diameter,currDia);
+        diameter = max(diameter, currDia);
 
         return 1 + max(leftHeight, rightHeight);
     }
