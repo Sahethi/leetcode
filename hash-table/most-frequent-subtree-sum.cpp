@@ -24,7 +24,7 @@ class Solution {
     }
 public:
     vector<int> findFrequentTreeSum(TreeNode* root) {
-        int maxFreq = 0;
+        int maxFreq = INT_MIN;
         dfs(root);
         for(auto& sum : freq){
             maxFreq = max(maxFreq, sum.second);
