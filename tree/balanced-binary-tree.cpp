@@ -18,7 +18,7 @@ class Solution {
 
             int leftHeight = dfs(root->left);
             int rightHeight = dfs(root->right);
-            diff = abs(leftHeight - rightHeight);
+            diff = max(diff, abs(leftHeight - rightHeight));
             return (1 + max(leftHeight, rightHeight));
         }
         bool isBalanced(TreeNode* root) {
