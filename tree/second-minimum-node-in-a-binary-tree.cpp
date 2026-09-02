@@ -10,18 +10,25 @@
  * };
  */
 class Solution {
-
-public:
-    int findSecondMinimumValue(TreeNode* root) {
+    int secondMinGlobal = INT_MAX;
+private:
+    int dfs(TreeNode* root, int minimum){
         if(root == NULL) return -1;
 
-        if(root->left != NULL && root->right != NULL)
-            if(root->left->val == root->right->val) return -1;
+        if(root->val > minimum) return root->val;
 
-        if(root->right == NULL && root->left != NULL) return root->left->val;
-        if(root->right == NULL) return -1;
-        if(root->right != NULL) return root->right->val;
+        int left = dfs(root->left, minimum);
+        int right = dfs(root->right, minimum);
 
-        return -1;
+        if(left == -1 && right == -1) return -1;
+
+        if(left == -1) return right;
+        if(right == -1) return left;
+
+        return min(left, right);
+    }
+public:
+    int findSecondMinimumValue(TreeNode* root) {
+        return dfs(root, root->val);
     }
 };
