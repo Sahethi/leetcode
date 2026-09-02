@@ -14,7 +14,8 @@ class Solution {
 public:
     int findSecondMinimumValue(TreeNode* root) {
         if(root == NULL) return -1;
-        if(root->left->val == root->right->val) return -1;
+        if(root->left != NULL && root->right != NULL)
+            if(root->left->val == root->right->val) return -1;
 
         if(root->right == NULL && root->left != NULL) return root->left->val;
 
