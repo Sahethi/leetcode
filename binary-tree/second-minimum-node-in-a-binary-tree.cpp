@@ -18,7 +18,7 @@ public:
             if(root->left->val == root->right->val) return -1;
 
         if(root->right == NULL && root->left != NULL) return root->left->val;
-
+        if(root->right == NULL) return -1;
         return root->right->val;
     }
 };
