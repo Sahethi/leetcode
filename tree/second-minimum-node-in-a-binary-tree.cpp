@@ -14,11 +14,14 @@ class Solution {
 public:
     int findSecondMinimumValue(TreeNode* root) {
         if(root == NULL) return -1;
+
         if(root->left != NULL && root->right != NULL)
             if(root->left->val == root->right->val) return -1;
 
         if(root->right == NULL && root->left != NULL) return root->left->val;
         if(root->right == NULL) return -1;
-        return root->right->val;
+        if(root->right != NULL) return root->right->val;
+
+        return -1;
     }
 };
