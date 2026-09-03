@@ -10,7 +10,6 @@
  * };
  */
 class Solution {
-
     int dfs(TreeNode* root, int& maxSum){
         if(!root) return 0;
 
@@ -25,7 +24,7 @@ class Solution {
 public:
     int maxPathSum(TreeNode* root) {
         int maxSum = root->val;
-        dfs(root, root->val);
+        dfs(root, maxSum);
         return maxSum;
     }
 };
