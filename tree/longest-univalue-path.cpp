@@ -13,9 +13,9 @@ class Solution {
     int ans = 0;
     int dfs(TreeNode* root){
         if(root == NULL) return 0;
-        int left = 0, right = 0;
-        int leftSide = dfs(root->left);
-        int rightSide = dfs(root->right);
+
+        int left = dfs(root->left);
+        int right = dfs(root->right);
 
         if(root->left && root->left->val == root->val){
             left++;
