@@ -2,12 +2,15 @@ class Solution {
 public:
     bool containsNearbyDuplicate(vector<int>& nums, int k) {
         int n = nums.size();
-
-        for(int i=0; i<n-1; i++){
-            for(int j=i+1; j<n; j++){
-                if(nums[i] == nums[j] && abs(i-j) <= k)
+        // int j = 1;
+        for(int i=0; i<n; i++){
+            int j = i+1;
+            while(j < n && j-i <= k){
+                if(nums[i] == nums[j])
                     return true;
+                j++;
             }
+            // j++;
         }
 
         return false;
