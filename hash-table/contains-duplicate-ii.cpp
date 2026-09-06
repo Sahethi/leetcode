@@ -15,19 +15,18 @@ public:
 
         // return false;
 
-        unordered_set<int> window;
+        unordered_map<int,int> lastIndex;
+        //storing the number and the index 
 
-        for (int i = 0; i < nums.size(); i++) {
+        int n = nums.size();
+        for(int i=0; i<n; i++){
+            if(lastIndex.count(nums[i])){
+                if(i - lastIndex[nums[i]] <= k)
+                    return true;
+            }
 
-            if (window.count(nums[i]))
-                return true;
-
-            window.insert(nums[i]);
-
-            if (window.size() > k)
-                window.erase(nums[i - k]);
+            lastIndex[nums[i]] = i;
         }
-
         return false;
     }
 };
