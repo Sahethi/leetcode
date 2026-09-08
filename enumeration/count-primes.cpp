@@ -10,20 +10,25 @@ public:
     int countPrimes(int n) {
         if(n <= 2) return 0;
         int count = 0;
-        vector<bool> seen(n, false);
-        // isPrime[0] = false;
-        // isPrime[1] = false;
-        //since i know im a prime, im going to go ahead and mark all my multiples
-        //as not prime
+        vector<char> isPrime(n,true);
+
+        isPrime[0] = false;
+        isPrime[1] = false;
+    
+        for(int i=2; i*i<n; i++){
+            if(isPrime[i]){
+                for(int j=i*i; j < n; j += i){
+                    isPrime[j] = false;
+                }
+            }
+        }
 
         for(int i=2; i<n; i++){
-            if(seen[i]) continue;
-            count++;
-            for(long long j=(long)i*i; j<n; j+=i){
-                seen[j] = true;
-            }
+            if(isPrime[i]) count++;
         }
 
         return count;
     }
+    
 };
+
