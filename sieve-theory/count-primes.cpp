@@ -14,9 +14,9 @@ public:
         isPrime[0] = false;
         isPrime[1] = false;
     
-        for(int i=2; i*i < n; i++){
+        for(long long i=2; i*i < n; i++){
             if(isPrime[i]){
-                for(int multiple=i*i; multiple < n; multiple += i){
+                for(long long multiple=i*i; multiple < n; multiple += i){
                     isPrime[multiple] = false;
                 }
             }
@@ -28,4 +28,5 @@ public:
 
         return count;
     }
+    
 };
