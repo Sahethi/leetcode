@@ -24,10 +24,9 @@ public:
             curr = curr->next;
         }
 
-        
-        
         k = k % n;
         if(k==0) return head;
+
         int pos = n - k;
         ListNode* newHead;
         curr = head;
