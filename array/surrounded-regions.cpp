@@ -21,12 +21,12 @@ public:
         //calling dfs on borders
         for(int i=0; i<n; i++){
             dfs(board, i, 0);
-            dfs(board, i, n-1);
+            dfs(board, i, m-1);
         }
 
         for(int j=0; j<m; j++){
             dfs(board, 0, j);
-            dfs(board, m-1, j);
+            dfs(board, n-1, j);
         }
 
         //flip the board
