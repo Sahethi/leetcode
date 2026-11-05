@@ -3,11 +3,12 @@ public:
     int minEatingSpeed(vector<int>& piles, int h) {
         int left = 1;
         int right = *max_element(piles.begin(), piles.end());
+        
 
         while(left < right){
-            int mid = left + (right - left) / 2;
-            long long totalHours = 0;
-
+            int mid = left + (right - left)/2;
+            int totalHours = 0;
+            
             for(int pile : piles){
                 totalHours += (pile + mid - 1) / mid;
             }
@@ -18,6 +19,7 @@ public:
                 left = mid + 1;
             }
         }
+
         return left;
     }
 };
