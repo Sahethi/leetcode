@@ -11,22 +11,21 @@
  */
 class Solution {
     int totalTilt = 0;
-    int dfs(TreeNode* node){
-        if(node == NULL) return 0;
 
-        int leftSum = 0, rightSum = 0;
-        leftSum = dfs(node->left);
-        rightSum = dfs(node->right);
+    int dfs(TreeNode* root){
+        if(root == NULL) return 0;
+
+        int leftSum = dfs(root->left);
+        int rightSum = dfs(root->right);
 
         totalTilt += abs(leftSum - rightSum);
 
-        return node->val + leftSum + rightSum;
+        return root->val + leftSum + rightSum;
     }
 public:
     int findTilt(TreeNode* root) {
-        //we need to return the sum of all the tilts
-        //tilt = |sum of all nodes in right subtree - sum of all nodes in left subtree|
         dfs(root);
+
         return totalTilt;
     }
 };
